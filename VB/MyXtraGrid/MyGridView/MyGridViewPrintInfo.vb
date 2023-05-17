@@ -46,7 +46,7 @@ Namespace MyXtraGrid
 			Next col
 			Me.fMaxRowWidth += Me.View.IndicatorWidth
 		End Sub
-		Protected Overrides Sub PrintRow(ByVal cache As GraphicsCache, ByVal graph As IBrickGraphics, ByVal rowHandle As Integer, ByVal level As Integer)
+		Protected Overrides Sub PrintRow(ByVal cache As GraphicsCache, ByVal graph As BrickGraphics, ByVal rowHandle As Integer, ByVal level As Integer)
 			MyBase.PrintRow(cache, graph, rowHandle, level)
 			PrintRowIndicator(graph, rowHandle)
 		End Sub
@@ -69,7 +69,7 @@ Namespace MyXtraGrid
 			End If
 		   graph.DrawBrick(ib, rect)
 		End Sub
-		Public Overrides Sub PrintFooterPanel(ByVal graph As IBrickGraphics)
+		Public Overrides Sub PrintFooterPanel(ByVal graph As BrickGraphics)
 			MyBase.PrintFooterPanel(graph)
 			 CustomDrawFooterCells(graph)
 		End Sub
