@@ -48,7 +48,7 @@ namespace MyXtraGrid
             }
             this.fMaxRowWidth += this.View.IndicatorWidth;
         }
-        protected override void PrintRow(GraphicsCache cache, IBrickGraphics graph, int rowHandle, int level)
+        protected override void PrintRow(GraphicsCache cache, BrickGraphics graph, int rowHandle, int level)
         {
             base.PrintRow(cache, graph, rowHandle, level);
             PrintRowIndicator(graph, rowHandle);
@@ -73,7 +73,7 @@ namespace MyXtraGrid
             }
            graph.DrawBrick(ib, rect);
         }
-        public override void PrintFooterPanel(IBrickGraphics graph)
+        public override void PrintFooterPanel(BrickGraphics graph)
         {
             base.PrintFooterPanel(graph);
              CustomDrawFooterCells(graph);
