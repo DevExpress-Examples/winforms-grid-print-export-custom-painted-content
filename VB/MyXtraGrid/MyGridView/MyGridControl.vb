@@ -1,4 +1,4 @@
-﻿' Developer Express Code Central Example:
+' Developer Express Code Central Example:
 ' How to customize the GridControl's print output.
 ' 
 ' This example demonstrates how to override the default exporting process to take
@@ -8,45 +8,44 @@
 ' 
 ' You can find sample updates and versions for different programming languages here:
 ' http://www.devexpress.com/example=E2667
-
-Imports System
 Imports DevExpress.XtraGrid
 Imports DevExpress.XtraGrid.Views.Base
 Imports DevExpress.XtraGrid.Registrator
 
 Namespace MyXtraGrid
+
     Public Class MyGridControl
         Inherits GridControl
 
-        Private gridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+        Private gridView1 As Views.Grid.GridView
 
         Protected Overrides Function CreateDefaultView() As BaseView
             Return CreateView("MyGridView")
         End Function
+
         Protected Overrides Sub RegisterAvailableViewsCore(ByVal collection As InfoCollection)
             MyBase.RegisterAvailableViewsCore(collection)
             collection.Add(New MyGridViewInfoRegistrator())
         End Sub
 
         Private Sub InitializeComponent()
-            Me.gridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
-            DirectCast(Me.gridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-            DirectCast(Me, System.ComponentModel.ISupportInitialize).BeginInit()
+            gridView1 = New Views.Grid.GridView()
+            CType(gridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.SuspendLayout()
             ' 
             ' gridView1
             ' 
-            Me.gridView1.GridControl = Me
-            Me.gridView1.Name = "gridView1"
+            gridView1.GridControl = Me
+            gridView1.Name = "gridView1"
             ' 
             ' MyGridControl
             ' 
-            Me.MainView = Me.gridView1
-            Me.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() { Me.gridView1})
-            DirectCast(Me.gridView1, System.ComponentModel.ISupportInitialize).EndInit()
-            DirectCast(Me, System.ComponentModel.ISupportInitialize).EndInit()
+            Me.MainView = gridView1
+            ViewCollection.AddRange(New BaseView() {gridView1})
+            CType(gridView1, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
             Me.ResumeLayout(False)
-
         End Sub
     End Class
 End Namespace

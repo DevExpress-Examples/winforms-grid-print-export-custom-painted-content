@@ -1,4 +1,4 @@
-﻿' Developer Express Code Central Example:
+' Developer Express Code Central Example:
 ' How to customize the GridControl's print output.
 ' 
 ' This example demonstrates how to override the default exporting process to take
@@ -8,9 +8,10 @@
 ' 
 ' You can find sample updates and versions for different programming languages here:
 ' http://www.devexpress.com/example=E2667
-
 Namespace MyXtraGrid
-    Partial Public Class Form1
+
+    Partial Class Form1
+
         ''' <summary>
         ''' Required designer variable.
         ''' </summary>
@@ -21,14 +22,14 @@ Namespace MyXtraGrid
         ''' </summary>
         ''' <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         Protected Overrides Sub Dispose(ByVal disposing As Boolean)
-            If disposing AndAlso (components IsNot Nothing) Then
-                components.Dispose()
+            If disposing AndAlso (Me.components IsNot Nothing) Then
+                Me.components.Dispose()
             End If
+
             MyBase.Dispose(disposing)
         End Sub
 
-        #Region "Windows Form Designer generated code"
-
+'#Region "Windows Form Designer generated code"
         ''' <summary>
         ''' Required method for Designer support - do not modify
         ''' the contents of this method with the code editor.
@@ -41,8 +42,8 @@ Namespace MyXtraGrid
             Me.gridColumn3 = New DevExpress.XtraGrid.Columns.GridColumn()
             Me.gridColumn4 = New DevExpress.XtraGrid.Columns.GridColumn()
             Me.simpleButton1 = New DevExpress.XtraEditors.SimpleButton()
-            CType(Me.myGridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-            CType(Me.myGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.myGridControl1), System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.myGridView1), System.ComponentModel.ISupportInitialize).BeginInit()
             Me.SuspendLayout()
             ' 
             ' myGridControl1
@@ -55,16 +56,18 @@ Namespace MyXtraGrid
             Me.myGridControl1.Name = "myGridControl1"
             Me.myGridControl1.Size = New System.Drawing.Size(887, 618)
             Me.myGridControl1.TabIndex = 1
-            Me.myGridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() { Me.myGridView1})
+            Me.myGridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.myGridView1})
             ' 
             ' myGridView1
             ' 
-            Me.myGridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() { Me.gridColumn1, Me.gridColumn2, Me.gridColumn3, Me.gridColumn4})
+            Me.myGridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.gridColumn1, Me.gridColumn2, Me.gridColumn3, Me.gridColumn4})
             Me.myGridView1.GridControl = Me.myGridControl1
-            Me.myGridView1.GroupSummary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() { New DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Average, "Number", Me.gridColumn2, "")})
+            Me.myGridView1.GroupSummary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Average, "Number", Me.gridColumn2, "")})
             Me.myGridView1.IndicatorWidth = 100
             Me.myGridView1.Name = "myGridView1"
             Me.myGridView1.OptionsView.ShowFooter = True
+            AddHandler Me.myGridView1.CustomDrawRowIndicator, New DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(AddressOf Me.myGridView1_CustomDrawRowIndicator)
+            AddHandler Me.myGridView1.CustomDrawFooterCell, New DevExpress.XtraGrid.Views.Grid.FooterCellCustomDrawEventHandler(AddressOf Me.myGridView1_CustomDrawFooterCell)
             ' 
             ' gridColumn1
             ' 
@@ -79,7 +82,7 @@ Namespace MyXtraGrid
             Me.gridColumn2.Caption = "gridColumn2"
             Me.gridColumn2.FieldName = "Number"
             Me.gridColumn2.Name = "gridColumn2"
-            Me.gridColumn2.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() { New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)})
+            Me.gridColumn2.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)})
             Me.gridColumn2.Visible = True
             Me.gridColumn2.VisibleIndex = 0
             ' 
@@ -107,6 +110,7 @@ Namespace MyXtraGrid
             Me.simpleButton1.Size = New System.Drawing.Size(100, 28)
             Me.simpleButton1.TabIndex = 2
             Me.simpleButton1.Text = "Print"
+            AddHandler Me.simpleButton1.Click, New System.EventHandler(AddressOf Me.simpleButton1_Click)
             ' 
             ' Form1
             ' 
@@ -118,21 +122,24 @@ Namespace MyXtraGrid
             Me.Margin = New System.Windows.Forms.Padding(4)
             Me.Name = "Form1"
             Me.Text = "Form1"
-            CType(Me.myGridControl1, System.ComponentModel.ISupportInitialize).EndInit()
-            CType(Me.myGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+            CType((Me.myGridControl1), System.ComponentModel.ISupportInitialize).EndInit()
+            CType((Me.myGridView1), System.ComponentModel.ISupportInitialize).EndInit()
             Me.ResumeLayout(False)
-
         End Sub
 
-        #End Region
+'#End Region
+        Private myGridControl1 As MyXtraGrid.MyGridControl
 
-        Private myGridControl1 As MyGridControl
-        Private WithEvents myGridView1 As MyGridView
+        Private myGridView1 As MyXtraGrid.MyGridView
+
         Private gridColumn1 As DevExpress.XtraGrid.Columns.GridColumn
+
         Private gridColumn2 As DevExpress.XtraGrid.Columns.GridColumn
+
         Private gridColumn3 As DevExpress.XtraGrid.Columns.GridColumn
-        Private WithEvents simpleButton1 As DevExpress.XtraEditors.SimpleButton
+
+        Private simpleButton1 As DevExpress.XtraEditors.SimpleButton
+
         Private gridColumn4 As DevExpress.XtraGrid.Columns.GridColumn
     End Class
 End Namespace
-
