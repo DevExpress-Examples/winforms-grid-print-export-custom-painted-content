@@ -3,8 +3,13 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/E4955)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-<!-- default file list -->
-*Files to look at*:
+
+# Winforms Data Grid - Print and export custom painted content
+
+This example creates a custom Grid control that can print and export custom drawn content (the example handles `CustomDrawRowIndicator` and `CustomDrawFooterCell` events).
+
+
+## Files to Review
 
 * [Form1.cs](./CS/MyXtraGrid/Form1.cs) (VB: [Form1.vb](./VB/MyXtraGrid/Form1.vb))
 * [MyGridControl.cs](./CS/MyXtraGrid/MyGridView/MyGridControl.cs) (VB: [MyGridControl.vb](./VB/MyXtraGrid/MyGridView/MyGridControl.vb))
@@ -13,13 +18,4 @@
 * [MyGridView.cs](./CS/MyXtraGrid/MyGridView/MyGridView.cs) (VB: [MyGridView.vb](./VB/MyXtraGrid/MyGridView/MyGridView.vb))
 * [MyGridViewInfo.cs](./CS/MyXtraGrid/MyGridView/MyGridViewInfo.cs) (VB: [MyGridViewInfo.vb](./VB/MyXtraGrid/MyGridView/MyGridViewInfo.vb))
 * [MyGridViewPrintInfo.cs](./CS/MyXtraGrid/MyGridView/MyGridViewPrintInfo.cs) (VB: [MyGridViewPrintInfo.vb](./VB/MyXtraGrid/MyGridView/MyGridViewPrintInfo.vb))
-* [Program.cs](./CS/MyXtraGrid/Program.cs) (VB: [Program.vb](./VB/MyXtraGrid/Program.vb))
-<!-- default file list end -->
-# How to make a custom GridView that takes into account custom painting when exporting and printing data
-
-
-<p>This example demonstrates how to override the default exporting process to take into account custom drawn content provided via the GridView.CustomDrawRowIndicator Event. Please refer to the <a href="https://www.devexpress.com/Support/Center/p/KA18868">How to make a custom GridView that takes into account custom painting when exporting and printing data</a> article to learn more about it.</p>
-
-<br/>
-
 
